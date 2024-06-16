@@ -1,0 +1,25 @@
+spring:
+  profiles:
+    active: local
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: root
+  data:
+    mongodb:
+      uri: mongodb://mongo-primary:27017,mongo-replica-1:27018,mongo-replica-2:27019/?replicaSet=rs
+      database: test
+      password:
+      username:
+  jpa:
+    hibernate:
+      ddl-auto: create
+database:
+  include:
+    list: test
+collection:
+  include:
+    list: "test.books,test.computers,test.phones"
+logging:
+  level:
+    org.mongodb.driver: WARN
